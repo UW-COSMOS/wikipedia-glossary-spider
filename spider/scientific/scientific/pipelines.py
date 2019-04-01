@@ -17,7 +17,7 @@ class ScientificPipeline(object):
         
 
     def process_item(self, item, spider):
-        subject = item['subject_name']
+        subject = item['subject_name'].replace(' ', '_')
         store_file = os.path.dirname(__file__) + '/spiders/'
         if subject not in self.subjects_to_csv:
             file_name = store_file + subject + '.csv'
